@@ -73,6 +73,12 @@ function markethub_register_required_plugins() {
         'slug'      => 'woocommerce',
         'required'  => true, // Make WooCommerce required
     ),
+    array(
+    'name'      => 'WC Vendors',
+    'slug'      => 'wc-vendors',
+    'required'  => true,
+),
+
 );
 
 	/*
