@@ -78,7 +78,11 @@ function markethub_register_required_plugins() {
     'slug'      => 'wc-vendors',
     'required'  => true,
 ),
-
+array(
+            'name'     => 'Profile Builder',
+            'slug'     => 'profile-builder',
+            'required' => false, // Change to true if you want to require the plugin
+        ),
 );
 
 	/*

@@ -54,16 +54,38 @@
                 </button>
             </div>
             <?php
-            // Output WordPress navigation menu
-            wp_nav_menu( array(
-                'theme_location' => 'primary',
-                'container_class' => 'items-center justify-between hidden w-full md:flex md:w-auto md:order-1',
-                'menu_class' => 'flex flex-row font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700',
-                'link_before' => '<span class="block py-2 px-3">',
-                'link_after' => '</span>',
-                'depth' => 1,
-            ) );
+                // Output WordPress navigation menu with a limit of 6 items
+                wp_nav_menu( array(
+                    'theme_location' => 'primary',
+                    'container_class' => 'items-center justify-between hidden w-full md:flex md:w-auto md:order-1',
+                    'menu_class' => 'flex flex-row font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700',
+                    'link_before' => '<span class="block py-2 px-3">',
+                    'link_after' => '</span>',
+                    'depth' => 1,
+                    'items_wrap' => '%3$s', // Removing any additional wrappers
+                    'fallback_cb' => false, // Do not fall back to a default menu
+                    'walker' => new Walker_Nav_Menu_Limit_Items(6), // Custom walker to limit menu items
+                ) );
+
             ?>
+            <?php class Walker_Nav_Menu_Limit_Items extends Walker_Nav_Menu {
+    private $counter = 0;
+    private $limit;
+
+    public function __construct($limit) {
+        $this->limit = $limit;
+    }
+
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        if ($this->counter >= $this->limit) {
+            return;
+        }
+
+        parent::start_el($output, $item, $depth, $args, $id);
+        $this->counter++;
+    }
+}
+ ?>
         </div>
     </nav>
     <?php wp_body_open(); ?>

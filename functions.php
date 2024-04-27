@@ -72,5 +72,20 @@ function markethub_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'markethub_custom_excerpt_length', 999 );
 
+// Step 1: Register Custom Post Type
+function custom_register_testimonial_post_type() {
+    $args = array(
+        'labels' => array(
+            'name' => 'Testimonials',
+            'singular_name' => 'Testimonial',
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-testimonial', // Choose appropriate icon
+        'supports' => array('title', 'editor', 'thumbnail'),
+    );
+    register_post_type('testimonial', $args);
+}
+add_action('init', 'custom_register_testimonial_post_type');
 
 
