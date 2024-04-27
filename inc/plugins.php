@@ -83,6 +83,7 @@ array(
             'slug'     => 'profile-builder',
             'required' => false, // Change to true if you want to require the plugin
         ),
+
 );
 
 	/*
