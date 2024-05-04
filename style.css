@@ -2,7 +2,7 @@
 Theme Name: MarketHub
 Theme URI: https://example.com/markethub
 Description: MarketHub is a versatile and feature-rich WordPress theme designed for creating vibrant and engaging multivendor ecommerce platforms. With its centralized hub for various vendors and vibrant marketplace aesthetics, MarketHub offers a seamless and user-friendly experience for both vendors and customers.
-Author: BestTheme
+Author: Nayan Ray
 Author URI: https://nayanray.com
 Version: 1.0
 License: GNU General Public License v2 or later
@@ -10,5 +10,81 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: ecommerce, multivendor, marketplace, vibrant, responsive
 Text Domain: markethub
 */
+button, input, optgroup, select, textarea {
+    outline-style: none;
+}
 
-/* Custom Styles Below */
+.payment-methods-background {
+    background-image: url('assets/619a340343.jpg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+    background-size: cover; /* Cover ensures the background image covers the entire div */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+/* Style for the Mailchimp form submit button */
+button[type="submit"] {
+    padding: 12px 20px; /* Symmetric padding for a nice button shape */
+    width: 30%; /* Full width for mobile, adjust as necessary for larger screens */
+    font-size: 16px; /* Readable font size */
+    color: white; /* White text for clarity */
+    background-color: #007bff; /* A vibrant blue, adjust this value to match your theme color */
+    border: none; /* No border for a modern look */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor indicates clickable item */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button[type="submit"]:hover, button[type="submit"]:focus {
+    background-color: #0056b3; /* Darker shade on hover/focus */
+    outline: none; /* Remove outline to maintain styling */
+}
+
+/* Dark theme styles */
+.dark button[type="submit"] {
+    background-color: #4a5568; /* Dark grey background for dark theme */
+    border-color: #4a5568; /* Consistent with the background */
+}
+
+.dark button[type="submit"]:hover, .dark button[type="submit"]:focus {
+    background-color: #2d3748; /* Even darker on hover/focus */
+    border-color: #2d3748;
+}
+/* Center and cover carousel images */
+.swiper-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#cart-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    z-index: 50;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 20px;
+}
+.dark {
+    /* Dark mode styles */
+    background-color: #1a202c;
+    color: #ffffff;
+    /* Add more styles as needed */
+}

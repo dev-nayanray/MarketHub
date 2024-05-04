@@ -5,7 +5,7 @@ Template Name: Home Page
 
 get_header(); ?>
 
-<?php get_template_part('loop/carousel'); ?>
+<?php get_template_part('loop/carosel'); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">

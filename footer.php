@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Your Site Name</a>. All Rights Reserved.</span>
+        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>. All Rights Reserved.</span>
         <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
             <!-- Replace # with your social media links -->
             <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
