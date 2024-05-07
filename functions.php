@@ -204,3 +204,17 @@ function my_custom_account_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'my_custom_account_scripts');
+function add_custom_checkout_endpoint() {
+    add_rewrite_endpoint('custom-checkout', EP_ROOT | EP_PAGES);
+}
+add_action('init', 'add_custom_checkout_endpoint');
+
+function custom_checkout_template($template) {
+    global $wp_query;
+    
+    if (isset($wp_query->query_vars['custom-checkout'])) {
+        $template = get_theme_file_path('/woocommerce_checkout.php');
+    }
+    return $template;
+}
+add_filter('page_template', 'custom_checkout_template');
